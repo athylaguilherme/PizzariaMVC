@@ -18,5 +18,11 @@ namespace Pizzaria.Models
 
         public string Nome { get; private set; }
         public List<Pizza> Pizzas { get; set; }
+        
+        public void AlterarDados(string novoNome)
+        {
+            Nome = novoNome;
+            DataAlteracao = DateTime.Now;
+        }
     }
 }

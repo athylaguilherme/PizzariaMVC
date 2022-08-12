@@ -36,5 +36,20 @@ namespace Pizzaria.Models
         public decimal Preco { get; private set; }
         public Tamanho Tamanho { get; set; }
         public int TamanhoId { get; set; }
+
+        public void AlterarDados(string novoNome, string fotoUrl, decimal preco)
+        {
+            if(preco > 0)
+            {
+                Nome = novoNome;
+                FotoUrl = fotoUrl;
+                Preco = preco;
+                DataAlteracao = DateTime.Now;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }
