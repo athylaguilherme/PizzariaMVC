@@ -8,7 +8,10 @@ namespace Pizzaria.Models
 {
     public class Pizza : IEntidade
     {
+        protected Pizza()
+        {
 
+        }
         public Pizza(string nome, string fotourl ,decimal preco)
         {
             Nome = nome;
