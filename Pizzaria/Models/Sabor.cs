@@ -8,20 +8,23 @@ namespace Pizzaria.Models
 {
     public class Sabor : IEntidade
     {
-        public Sabor(string nome)
+        public Sabor(string nome, string fotoUrl)
         {
             Nome = nome;
+            FotoUrl = fotoUrl;
         }
         public int Id { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime DataAlteracao { get; set; }
         public string Nome  { get; private set; }
+        public string FotoUrl { get; private set; }
         public List<PizzaSabor> PizzaSabores { get; set; }
 
-        public void AlterarDados(string novoNome)
+        public void AlterarDados(string novoNome, string fotoUrl)
         {
 
             Nome = novoNome;
+            FotoUrl = fotoUrl;
             DataAlteracao = DateTime.Now;
         }
 

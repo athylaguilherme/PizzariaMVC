@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Pizzaria.Models;
 
-namespace IngressoMVC.Data
+namespace Pizzaria.Data
 {
     public class PizzariaDbContext : DbContext
     {
