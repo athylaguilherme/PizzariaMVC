@@ -39,13 +39,14 @@ namespace Pizzaria.Models
         public Tamanho Tamanho { get; set; }
         public int TamanhoId { get; set; }
 
-        public void AlterarDados(string novoNome, string fotoUrl, decimal preco)
+        public void AlterarDados(string novoNome, string fotoUrl, decimal preco, int tamanhoid)
         {
             if(preco > 0)
             {
                 Nome = novoNome;
                 FotoUrl = fotoUrl;
                 Preco = preco;
+                TamanhoId = tamanhoid;
                 DataAlteracao = DateTime.Now;
             }
             else

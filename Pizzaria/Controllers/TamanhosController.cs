@@ -92,5 +92,8 @@ namespace Pizzaria.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Detalhes(int id) => View(_context.Tamanhos.Find(id));
+
     }
 }
