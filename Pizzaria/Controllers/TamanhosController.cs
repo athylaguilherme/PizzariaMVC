@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pizzaria.Data;
 using Pizzaria.Models;
+using Pizzaria.Models.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace Pizzaria.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(Tamanho tamanho)
+        public IActionResult Criar(PostTamanhoDTO dtoTamanho)
         {
-            Tamanho NovoTamanho = new Tamanho(tamanho.Nome);
+            Tamanho NovoTamanho = new Tamanho(dtoTamanho.Nome);
 
             _context.Tamanhos.Add(NovoTamanho);
             _context.SaveChanges();
@@ -56,11 +57,13 @@ namespace Pizzaria.Controllers
         }
 
         [HttpPost]
-        public IActionResult Atualizar(int id, Tamanho tamanho)
+        public IActionResult Atualizar(int id, PostTamanhoDTO tamanhoDTO)
         {
 
             var AtualizarTamanho = _context.Tamanhos.FirstOrDefault(t => t.Id == id);
-            AtualizarTamanho.AlterarDados(tamanho.Nome);
+
+            AtualizarTamanho.AlterarDados(tamanhoDTO.Nome);
+
             _context.Tamanhos.Update(AtualizarTamanho);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
@@ -83,7 +86,7 @@ namespace Pizzaria.Controllers
 
         }
 
-        [HttpPost, ActionName("Deletar")]
+        [HttpPost]
         public IActionResult ConfirmarDeletar(int id)
         {
             var DeletarTamanho = _context.Tamanhos.FirstOrDefault(t => t.Id == id);

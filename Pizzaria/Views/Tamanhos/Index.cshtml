@@ -1,1 +1,24 @@
-﻿<h1>Index Tamanho</h1>
+﻿@model IEnumerable<Tamanho>
+
+@{ ViewData["Title"] = "Índice Sabor";
+}
+
+<h1>Tamanho das Pizzas</h1>
+
+<h2 class="text-center"> Tamanho -  <a asp-action="Criar" class="btn btn-dark">Criar</a></h2>
+<br />
+
+    @foreach (var tamanho in Model)
+    {
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@tamanho.Nome</h5>
+                    <a asp-action="Atualizar" asp-route-id="@tamanho.Id" class="btn btn-success mt-1"><i class="fa-solid fa-pen-to-square"></i>Atualizar</a>
+                    <a asp-action="Detalhes" asp-route-id="@tamanho.Id" class="btn btn-primary mt-1"><i class="fa-solid fa-eye"></i>Detalhes</a>
+                    <a asp-action="Deletar" asp-route-id="@tamanho.Id" class="btn btn-danger mt-1"><i class="fa-solid fa-trash"></i>Excluir</a>
+                </div>
+            </div>
+        </div>
+    }
+

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pizzaria.Data;
 using Pizzaria.Models;
+using Pizzaria.Models.ViewModel.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,9 @@ namespace Pizzaria.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(Sabor sabor)
+        public IActionResult Criar(PostSaboresDTO dtoSabor)
         {
-            Sabor NovoSabor = new Sabor(sabor.Nome, sabor.FotoUrl);
+            Sabor NovoSabor = new Sabor(dtoSabor.Nome, dtoSabor.FotoUrl);
 
             _context.Sabores.Add(NovoSabor);
             _context.SaveChanges();

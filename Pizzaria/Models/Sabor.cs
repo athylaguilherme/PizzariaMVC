@@ -12,6 +12,8 @@ namespace Pizzaria.Models
         {
             Nome = nome;
             FotoUrl = fotoUrl;
+            DataCadastro = DateTime.Now;
+            DataAlteracao = DataCadastro;
         }
         public int Id { get; set; }
         public DateTime DataCadastro { get; set; }

@@ -1,8 +1,8 @@
-﻿using Pizzaria.Models.Interfaces;
+﻿
+using Pizzaria.Models.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Pizzaria.Models
 {
@@ -11,6 +11,8 @@ namespace Pizzaria.Models
         public Tamanho(string nome)
         {
             Nome = nome;
+            DataCadastro = DateTime.Now;
+            DataAlteracao = DataCadastro;
         }
         public int Id { get; set; }
         public DateTime DataCadastro { get; set; }

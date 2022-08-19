@@ -1,1 +1,22 @@
-﻿<h1>Detalhes Tamanho</h1>
+﻿@model Tamanho
+
+
+@{
+    ViewData["Title"] = "Detalhes Tamanho";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+
+            <h1> Tamanho @Model.Nome</h1>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Detalhes">
+                    <div class="form-group">
+                        <a class="btn btn-outline-secondary" asp-action="Index">Listar Todos</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

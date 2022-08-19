@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Tamanho
+
 @{
+    ViewData["Title"] = "Adicionar Tamanho";
 }
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Criar novo Tamanho</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Atualizar">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nome" class="control-label"></label>
+                        <input asp-for="Nome" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Atualizar" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Listar Todos</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
