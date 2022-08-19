@@ -36,8 +36,9 @@ namespace Pizzaria.Models
 
         public string FotoUrl { get; private set; }
         public decimal Preco { get; private set; }
-        public Tamanho Tamanho { get; set; }
+        
         public int TamanhoId { get; set; }
+        public Tamanho Tamanho { get; set; }
 
         public void AlterarDados(string novoNome, string fotoUrl, decimal preco, int tamanhoid)
         {

@@ -18,7 +18,7 @@ namespace Pizzaria.Models
         public DateTime DataCadastro { get; set; }
         public DateTime DataAlteracao { get; set; }
 
-        public string Nome { get; private set; }
+        public string Nome { get;  set; }
         public List<Pizza> Pizzas { get; set; }
         
         public void AlterarDados(string novoNome)

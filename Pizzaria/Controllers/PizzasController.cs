@@ -23,7 +23,7 @@ namespace Pizzaria.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Pizzas);
         }
 
         public void DadosDropdown()
@@ -36,7 +36,7 @@ namespace Pizzaria.Controllers
             };
 
             ViewBag.Sabores = new SelectList(resposta.Sabores, "Id", "Nome");
-            ViewBag.Categorias = new SelectList(resposta.Tamanhos, "Id", "Nome");
+            ViewBag.Tamanhos = new SelectList(resposta.Tamanhos, "Id", "Nome");
 
         }
 
