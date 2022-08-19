@@ -56,11 +56,11 @@ namespace Pizzaria.Controllers
         }
 
         [HttpPost]
-        public IActionResult Atualizar(int id, Sabor sabor)
+        public IActionResult Atualizar(int id, PostSaboresDTO Postsabor)
         {
 
             var AtualizarSabor = _context.Sabores.FirstOrDefault(s => s.Id == id);
-            AtualizarSabor.AlterarDados(sabor.Nome, sabor.FotoUrl);
+            AtualizarSabor.AlterarDados(Postsabor.Nome, Postsabor.FotoUrl);
             _context.Sabores.Update(AtualizarSabor);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
@@ -83,7 +83,7 @@ namespace Pizzaria.Controllers
 
         }
 
-        [HttpPost, ActionName("Deletar")]
+        [HttpPost]
         public IActionResult ConfirmarDeletar(int id)
         {
             var DeletarSabor = _context.Sabores.FirstOrDefault(s => s.Id == id);

@@ -6,18 +6,6 @@
 <h1>Pizzas</h1>
 <h2 class="text-center"> Sabor -  <a asp-action="Criar" class="btn btn-dark">Criar</a></h2>
 <div class="row row-cols-2 row-cols-md-3">
-    <div class="col mb-4">
-        <div class="card h-100">
-            <img src="https://cdn6.campograndenews.com.br/uploads/noticias/2022/03/04/3cb5530b66938475b217183a18974de301f5b0fd.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Calabresa</h5>
-                <button type="button" class="btn btn-primary">Detalhes</button>
-                <button type="button" class="btn btn-warning">Atualizar</button>
-                <button type="button" class="btn btn-danger">Deletar</button>
-            </div>
-        </div>
-    </div>
-
     @foreach (var sabor in Model)
     {
         <div class="col mb-4">
@@ -25,9 +13,9 @@
                 <img src="@sabor.FotoUrl" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@sabor.Nome</h5>
-                    <button type="button" class="btn btn-primary">Detalhes</button>
-                    <button type="button" class="btn btn-warning">Atualizar</button>
-                    <button type="button" class="btn btn-danger">Deletar</button>
+                    <a asp-action="Atualizar" asp-route-id="@sabor.Id" class="btn btn-success mt-1"><i class="fa-solid fa-pen-to-square"></i>Atualizar</a>
+                    <a asp-action="Detalhes" asp-route-id="@sabor.Id" class="btn btn-primary mt-1"><i class="fa-solid fa-eye"></i>Detalhes</a>
+                    <a asp-action="Deletar" asp-route-id="@sabor.Id" class="btn btn-danger mt-1"><i class="fa-solid fa-trash"></i>Excluir</a>
                 </div>
             </div>
         </div>
