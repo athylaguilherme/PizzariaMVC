@@ -18,9 +18,9 @@ namespace Pizzaria.Models
 
         [Key]
         public Pizza Pizza { get; set; }
-        public int PizzaId { get; private set; }
+        public int PizzaId { get;  set; }
         [Key]
         public Sabor Sabor { get; set; }
-        public int SaborId { get; private set; }
+        public int SaborId { get;  set; }
     }
 }
