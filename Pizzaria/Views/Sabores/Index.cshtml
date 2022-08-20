@@ -1,24 +1,25 @@
 ﻿@model IEnumerable<Sabor>
 
-@{ ViewData["Title"] = "Índice Sabor";
+@{ ViewData["Title"] = "Índice Ingrediente";
 }
-
-<h1>Pizzas</h1>
-<h2 class="text-center"> Sabor -  <a asp-action="Criar" class="btn btn-dark">Criar</a></h2>
-<div class="row row-cols-2 row-cols-md-3">
-    @foreach (var sabor in Model)
-    {
-        <div class="col mb-4">
-            <div class="card h-100">
-                <img src="@sabor.FotoUrl" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@sabor.Nome</h5>
-                    <a asp-action="Atualizar" asp-route-id="@sabor.Id" class="btn btn-success mt-1"><i class="fa-solid fa-pen-to-square"></i>Atualizar</a>
-                    <a asp-action="Detalhes" asp-route-id="@sabor.Id" class="btn btn-primary mt-1"><i class="fa-solid fa-eye"></i>Detalhes</a>
-                    <a asp-action="Deletar" asp-route-id="@sabor.Id" class="btn btn-danger mt-1"><i class="fa-solid fa-trash"></i>Excluir</a>
+<div class="container">
+    <h1>Ingredientes</h1>
+    <h2 class="text-center"><a asp-action="Criar" class="btn btn-dark">Cadastrar</a> - Ingrediente</h2>
+    <div class="row row-cols-1 row-cols-md-3">
+        @foreach (var sabor in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@sabor.FotoUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@sabor.Nome</h5>
+                        <a asp-action="Atualizar" asp-route-id="@sabor.Id" class="btn btn-success mt-1"><i class="fa-solid fa-pen-to-square"></i>Atualizar</a>
+                        <a asp-action="Detalhes" asp-route-id="@sabor.Id" class="btn btn-primary mt-1"><i class="fa-solid fa-eye"></i>Detalhes</a>
+                        <a asp-action="Deletar" asp-route-id="@sabor.Id" class="btn btn-danger mt-1"><i class="fa-solid fa-trash"></i>Excluir</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
 
+    </div>
 </div>

@@ -2,11 +2,11 @@
 
 @{ ViewData["Title"] = "Índice Sabor";
 }
+<div class="container">
+    <h1>Tamanho das Pizzas</h1>
 
-<h1>Tamanho das Pizzas</h1>
-
-<h2 class="text-center"> Tamanho -  <a asp-action="Criar" class="btn btn-dark">Criar</a></h2>
-<br />
+    <h2 class="text-center"><a asp-action="Criar" class="btn btn-dark">Cadastrar</a> - Tamanho</h2>
+    <br />
 
     @foreach (var tamanho in Model)
     {
@@ -21,4 +21,5 @@
             </div>
         </div>
     }
+</div>
 

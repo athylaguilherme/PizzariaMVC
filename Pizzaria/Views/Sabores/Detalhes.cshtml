@@ -1,20 +1,22 @@
 ﻿@model Sabor
 
-@{ ViewData["Title"] = "Índice Sabor";
+@{ ViewData["Title"] = "Detalhes Ingrediente";
 }
+<div class="container">
+    <h1>Detalhes do Ingrediente @Model.Nome</h1>
 
-<h1>Pizzas</h1>
+    <div class="row row-cols-2 row-cols-md-3">
 
-<div class="row row-cols-2 row-cols-md-3">
-
-        <div class="col mb-4">
+        <div class="col-md-4  mb-4">
             <div class="card h-100">
                 <img src="@Model.FotoUrl" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@Model.Nome</h5>
+                    <a class="btn btn-secondary" asp-action="Index">Mostrar Todos</a>
                 </div>
             </div>
         </div>
-    
 
+
+    </div>
 </div>

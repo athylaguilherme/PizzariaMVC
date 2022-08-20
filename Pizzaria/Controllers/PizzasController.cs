@@ -97,7 +97,7 @@ namespace Pizzaria.Controllers
             };
 
             DadosDropdown();
-            return View(resultado);
+            return View(result);
         }
 
         [HttpPost]
@@ -108,7 +108,7 @@ namespace Pizzaria.Controllers
             if (!ModelState.IsValid)
             {
                 DadosDropdown();
-                return View(resultado);
+                return View(pizzaVM);
             }
 
             resultado.AlterarDados
@@ -152,6 +152,10 @@ namespace Pizzaria.Controllers
                 .Include(ps => ps.PizzaSabores).ThenInclude(s => s.Sabor)
                 .Include(t => t.Tamanho)
                 .FirstOrDefault(p => p.Id == id);
+
+            if (resultado == null)
+                return View("NotFound");
+
 
             return View(resultado);
         }

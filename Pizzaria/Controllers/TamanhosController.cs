@@ -32,7 +32,11 @@ namespace Pizzaria.Controllers
         [HttpPost]
         public IActionResult Criar(PostTamanhoDTO dtoTamanho)
         {
+            
+
             Tamanho NovoTamanho = new Tamanho(dtoTamanho.Nome);
+
+            if (!ModelState.IsValid) return View(NovoTamanho);
 
             _context.Tamanhos.Add(NovoTamanho);
             _context.SaveChanges();
@@ -44,7 +48,7 @@ namespace Pizzaria.Controllers
         {
             if (id == null)
             {
-                return View();
+                return View("NotFound");
             }
 
             var resultado = _context.Tamanhos.FirstOrDefault(t => t.Id == id);
@@ -62,6 +66,8 @@ namespace Pizzaria.Controllers
 
             var AtualizarTamanho = _context.Tamanhos.FirstOrDefault(t => t.Id == id);
 
+            if (!ModelState.IsValid) return View(AtualizarTamanho);
+
             AtualizarTamanho.AlterarDados(tamanhoDTO.Nome);
 
             _context.Tamanhos.Update(AtualizarTamanho);
@@ -73,7 +79,7 @@ namespace Pizzaria.Controllers
         {
             if (id == null)
             {
-                return View();
+                return View("NotFound");
             }
 
             var resultado = _context.Tamanhos.FirstOrDefault(t => t.Id == id);

@@ -31,7 +31,11 @@ namespace Pizzaria.Controllers
         [HttpPost]
         public IActionResult Criar(PostSaboresDTO dtoSabor)
         {
+            if (!ModelState.IsValid) return View(dtoSabor);
+
             Sabor NovoSabor = new Sabor(dtoSabor.Nome, dtoSabor.FotoUrl);
+
+            
 
             _context.Sabores.Add(NovoSabor);
             _context.SaveChanges();
@@ -60,6 +64,9 @@ namespace Pizzaria.Controllers
         {
 
             var AtualizarSabor = _context.Sabores.FirstOrDefault(s => s.Id == id);
+
+            if (!ModelState.IsValid) return View(AtualizarSabor);
+
             AtualizarSabor.AlterarDados(Postsabor.Nome, Postsabor.FotoUrl);
             _context.Sabores.Update(AtualizarSabor);
             _context.SaveChanges();
@@ -70,13 +77,13 @@ namespace Pizzaria.Controllers
         {
             if (id == null)
             {
-                return View();
+                return View("NotFound");
             }
 
             var resultado = _context.Sabores.FirstOrDefault(s => s.Id == id);
             if (resultado == null)
             {
-                return View();
+                return View("NotFound");
             }
 
             return View(resultado);

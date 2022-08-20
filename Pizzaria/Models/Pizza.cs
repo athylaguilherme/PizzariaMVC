@@ -1,7 +1,7 @@
 ﻿using Pizzaria.Models.Interfaces;
 using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Pizzaria.Models
 {
@@ -35,6 +35,8 @@ namespace Pizzaria.Models
         public List<PizzaSabor> PizzaSabores  { get; set; }
 
         public string FotoUrl { get; private set; }
+
+       
         public decimal Preco { get; private set; }
         
         public int TamanhoId { get; set; }

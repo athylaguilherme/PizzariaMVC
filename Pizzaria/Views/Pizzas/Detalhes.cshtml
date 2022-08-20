@@ -1,1 +1,32 @@
-﻿<h1>Detalhes Pizza</h1>
+﻿@model Pizza
+
+@{ ViewData["Title"] = "Detalhes Pizza";
+}
+<div class="container">
+    <h1>Detalhes da Pizza @Model.Nome</h1>
+
+    <div class="row row-cols-2 row-cols-md-3">
+
+        <div class="col-md-4  mb-4">
+            <div class="card h-100">
+                <img src="@Model.FotoUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Nome</h5>
+                    <p class="card-text">Tamanho: @Model.Tamanho.Nome</p>
+                    <p class="card-text">Ingredientes:</p>
+
+                    @foreach (var pizzaSabor in Model.PizzaSabores)
+                    {
+
+                        <p class="card-text">@pizzaSabor.Sabor.Nome</p>
+
+                    }
+                    <p class="card-text"> Preço: @Model.Preco </p>
+                    <a class="btn btn-secondary" asp-action="Index">Mostrar Todos</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

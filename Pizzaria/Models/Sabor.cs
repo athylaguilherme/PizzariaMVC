@@ -1,6 +1,7 @@
 ﻿using Pizzaria.Models.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +20,8 @@ namespace Pizzaria.Models
         public DateTime DataCadastro { get; set; }
         public DateTime DataAlteracao { get; set; }
         public string Nome  { get; private set; }
+
+        [Display(Name = "Imagem")]
         public string FotoUrl { get; private set; }
         public List<PizzaSabor> PizzaSabores { get; set; }
 

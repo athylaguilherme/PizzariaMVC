@@ -4,13 +4,13 @@
     @{ ViewData["Title"] = "Índice Pizza";
     }
 
-    <h2 class="text-center"> Pizza -  <a asp-action="Criar" class="btn btn-dark">Criar</a></h2>
-  
+    <h2 class="text-center"> <a asp-action="Criar" class="btn btn-dark">Cadastrar</a> - Pizza</h2>
+
     <div class="row row-cols-2 row-cols-md-3">
 
         @foreach (var pizza in Model)
         {
-            <div class="col mb-4">
+            <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <img src="@pizza.FotoUrl" class="card-img-top" alt="...">
                     <div class="card-body">
