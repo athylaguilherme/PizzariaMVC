@@ -53,7 +53,7 @@ namespace Pizzaria
                     pattern: "{controller=Pizzas}/{action=Index}/{id?}");
             });
 
-            InicializadorDeDados.Inicializar(app);
+            
         }
     }
 }

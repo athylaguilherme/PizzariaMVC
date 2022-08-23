@@ -10,7 +10,7 @@ using Pizzaria.Data;
 namespace Pizzaria.Migrations
 {
     [DbContext(typeof(PizzariaDbContext))]
-    [Migration("20220820132439_Inicial")]
+    [Migration("20220823221052_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
